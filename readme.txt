@@ -1,0 +1,1 @@
+El diagrama conceptual y lógico se encuentran en el archivo docs.pdf dentro de la carpeta Docs
