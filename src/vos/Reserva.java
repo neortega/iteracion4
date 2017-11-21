@@ -2,19 +2,26 @@ package vos;
 
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Reserva {
 
+	@JsonProperty(value="sitio")
 	private Zona sitio;
 	
+	@JsonProperty(value="fecha")
 	private Date fecha;
 	
+	@JsonProperty(value="numeroComensales")
 	private int numeroComensales;
 	
+	@JsonProperty(value="sitioPreferido")
 	private Zona sitioPreferido;
 	
+	@JsonProperty(value="menuEvento")
 	private Menu menuEvento;
 
-	public Reserva(Zona sitio, Date fecha, int numeroComensales, Zona sitioPreferido, Menu menuEvento) {
+	public Reserva(@JsonProperty(value="sitio")Zona sitio, @JsonProperty(value="fecha")Date fecha, @JsonProperty(value="numeroComensales")int numeroComensales, @JsonProperty(value="sitioPreferido")Zona sitioPreferido, @JsonProperty(value="menuEvento")Menu menuEvento) {
 		this.sitio = sitio;
 		this.fecha = fecha;
 		this.numeroComensales = numeroComensales;

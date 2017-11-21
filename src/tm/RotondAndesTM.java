@@ -20,8 +20,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
+import dao.DAOTablaMenu;
 import dao.DAOTablaRestaurante;
+import dao.DAOTablaUsuario;
+import dao.DAOTablaZona;
+import vos.Menu;
 import vos.Restaurante;
+import vos.Usuario;
+import vos.Zona;
 
 /**
  * Transaction Manager de la aplicacion (TM)
@@ -120,212 +126,15 @@ public class RotondAndesTM {
 	 * @return ListaVideos - objeto que modela  un arreglo de videos. este arreglo contiene el resultado de la busqueda
 	 * @throws Exception -  cualquier error que se genere durante la transaccion
 	 */
-	public List<Restaurante> darVideos() throws Exception {
-//		List<Restaurante> videos;
-//		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
-//		try 
-//		{
-//			//////transaccion
-//			this.conn = darConexion();
-//			daoVideos.setConn(conn);
-//			videos = daoVideos.darVideos();
-//
-//		} catch (SQLException e) {
-//			System.err.println("SQLException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} catch (Exception e) {
-//			System.err.println("GeneralException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} finally {
-//			try {
-//				daoVideos.cerrarRecursos();
-//				if(this.conn!=null)
-//					this.conn.close();
-//			} catch (SQLException exception) {
-//				System.err.println("SQLException closing resources:" + exception.getMessage());
-//				exception.printStackTrace();
-//				throw exception;
-//			}
-//		}
-//		return videos;
-		return null;
-	}
-
-	/**
-	 * Metodo que modela la transaccion que busca el/los videos en la base de datos con el nombre entra como parametro.
-	 * @param name - Nombre del video a buscar. name != null
-	 * @return ListaVideos - objeto que modela  un arreglo de videos. este arreglo contiene el resultado de la busqueda
-	 * @throws Exception -  cualquier error que se genere durante la transaccion
-	 */
-	public List<Restaurante> buscarVideosPorName(String name) throws Exception {
-//		List<Restaurante> videos;
-//		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
-//		try 
-//		{
-//			//////transaccion
-//			this.conn = darConexion();
-//			daoVideos.setConn(conn);
-//			videos = daoVideos.buscarVideosPorName(name);
-//
-//		} catch (SQLException e) {
-//			System.err.println("SQLException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} catch (Exception e) {
-//			System.err.println("GeneralException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} finally {
-//			try {
-//				daoVideos.cerrarRecursos();
-//				if(this.conn!=null)
-//					this.conn.close();
-//			} catch (SQLException exception) {
-//				System.err.println("SQLException closing resources:" + exception.getMessage());
-//				exception.printStackTrace();
-//				throw exception;
-//			}
-//		}
-//		return videos;
-		return null;
-	}
-	
-	/**
-	 * Metodo que modela la transaccion que busca el video en la base de datos con el id que entra como parametro.
-	 * @param name - Id del video a buscar. name != null
-	 * @return Video - Resultado de la busqueda
-	 * @throws Exception -  cualquier error que se genere durante la transaccion
-	 */
-	public Restaurante buscarVideoPorId(Long id) throws Exception {
-//		Restaurante video;
-//		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
-//		try 
-//		{
-//			//////transaccion
-//			this.conn = darConexion();
-//			daoVideos.setConn(conn);
-//			video = daoVideos.buscarVideoPorId(id);
-//
-//		} catch (SQLException e) {
-//			System.err.println("SQLException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} catch (Exception e) {
-//			System.err.println("GeneralException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} finally {
-//			try {
-//				daoVideos.cerrarRecursos();
-//				if(this.conn!=null)
-//					this.conn.close();
-//			} catch (SQLException exception) {
-//				System.err.println("SQLException closing resources:" + exception.getMessage());
-//				exception.printStackTrace();
-//				throw exception;
-//			}
-//		}
-//		return video;
-		return null;
-	}
-	
-	/**
-	 * Metodo que modela la transaccion que agrega un solo video a la base de datos.
-	 * <b> post: </b> se ha agregado el video que entra como parametro
-	 * @param video - el video a agregar. video != null
-	 * @throws Exception - cualquier error que se genere agregando el video
-	 */
-	public void addVideo(Restaurante video) throws Exception {
-//		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
-//		try 
-//		{
-//			//////transaccion
-//			this.conn = darConexion();
-//			daoVideos.setConn(conn);
-//			daoVideos.addVideo(video);
-//			conn.commit();
-//
-//		} catch (SQLException e) {
-//			System.err.println("SQLException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} catch (Exception e) {
-//			System.err.println("GeneralException:" + e.getMessage());
-//			e.printStackTrace();
-//			throw e;
-//		} finally {
-//			try {
-//				daoVideos.cerrarRecursos();
-//				if(this.conn!=null)
-//					this.conn.close();
-//			} catch (SQLException exception) {
-//				System.err.println("SQLException closing resources:" + exception.getMessage());
-//				exception.printStackTrace();
-//				throw exception;
-//			}
-//		}
-	}
-	
-	/**
-	 * Metodo que modela la transaccion que agrega los videos que entran como parametro a la base de datos.
-	 * <b> post: </b> se han agregado los videos que entran como parametro
-	 * @param videos - objeto que modela una lista de videos y se estos se pretenden agregar. videos != null
-	 * @throws Exception - cualquier error que se genera agregando los videos
-	 */
-	public void addVideos(List<Restaurante> videos) throws Exception {
-//		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
-//		try 
-//		{
-//			//////transaccion - ACID Example
-//			this.conn = darConexion();
-//			conn.setAutoCommit(false);
-//			daoVideos.setConn(conn);
-//			Iterator<Restaurante> it = videos.iterator();
-//			while(it.hasNext())
-//			{
-//				daoVideos.addVideo(it.next());
-//			}
-//			
-//			conn.commit();
-//		} catch (SQLException e) {
-//			System.err.println("SQLException:" + e.getMessage());
-//			e.printStackTrace();
-//			conn.rollback();
-//			throw e;
-//		} catch (Exception e) {
-//			System.err.println("GeneralException:" + e.getMessage());
-//			e.printStackTrace();
-//			conn.rollback();
-//			throw e;
-//		} finally {
-//			try {
-//				daoVideos.cerrarRecursos();
-//				if(this.conn!=null)
-//					this.conn.close();
-//			} catch (SQLException exception) {
-//				System.err.println("SQLException closing resources:" + exception.getMessage());
-//				exception.printStackTrace();
-//				throw exception;
-//			}
-//		}
-	}
-	
-	/**
-	 * Metodo que modela la transaccion que actualiza el video que entra como parametro a la base de datos.
-	 * <b> post: </b> se ha actualizado el video que entra como parametro
-	 * @param video - Video a actualizar. video != null
-	 * @throws Exception - cualquier error que se genera actualizando los videos
-	 */
-	public void updateVideo(Restaurante video) throws Exception {
-		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
+	public List<Restaurante> darRestaurantes() throws Exception {
+		List<Restaurante> restaurantes;
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
 		try 
 		{
 			//////transaccion
 			this.conn = darConexion();
-			daoVideos.setConn(conn);
-			daoVideos.updateVideo(video);
+			daoRestaurantes.setConn(conn);
+			restaurantes = daoRestaurantes.darRestaurantes();
 
 		} catch (SQLException e) {
 			System.err.println("SQLException:" + e.getMessage());
@@ -337,7 +146,201 @@ public class RotondAndesTM {
 			throw e;
 		} finally {
 			try {
-				daoVideos.cerrarRecursos();
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return restaurantes;
+	}
+
+	/**
+	 * Metodo que modela la transaccion que busca el/los videos en la base de datos con el nombre entra como parametro.
+	 * @param name - Nombre del video a buscar. name != null
+	 * @return ListaVideos - objeto que modela  un arreglo de videos. este arreglo contiene el resultado de la busqueda
+	 * @throws Exception -  cualquier error que se genere durante la transaccion
+	 */
+	public List<Restaurante> buscarRestaurantePorName(String name) throws Exception {
+		List<Restaurante> restaurantes;
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoRestaurantes.setConn(conn);
+			restaurantes = daoRestaurantes.buscarRestaurantePorName(name);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return restaurantes;
+	}
+	
+	/**
+	 * Metodo que modela la transaccion que busca el video en la base de datos con el id que entra como parametro.
+	 * @param name - Id del video a buscar. name != null
+	 * @return Video - Resultado de la busqueda
+	 * @throws Exception -  cualquier error que se genere durante la transaccion
+	 */
+	public Restaurante buscarRestaurantePorId(Long id) throws Exception {
+		Restaurante restaurante;
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoRestaurantes.setConn(conn);
+			restaurante = daoRestaurantes.buscarRestaurantePorId(id);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return restaurante;
+	}
+	
+	/**
+	 * Metodo que modela la transaccion que agrega un solo video a la base de datos.
+	 * <b> post: </b> se ha agregado el video que entra como parametro
+	 * @param video - el video a agregar. video != null
+	 * @throws Exception - cualquier error que se genere agregando el video
+	 */
+	public void addRestaurante(Restaurante restaurante) throws Exception {
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoRestaurantes.setConn(conn);
+			daoRestaurantes.addRestaurante(restaurante);
+			conn.commit();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	/**
+	 * Metodo que modela la transaccion que agrega los videos que entran como parametro a la base de datos.
+	 * <b> post: </b> se han agregado los videos que entran como parametro
+	 * @param videos - objeto que modela una lista de videos y se estos se pretenden agregar. videos != null
+	 * @throws Exception - cualquier error que se genera agregando los videos
+	 */
+	public void addRestaurantes(List<Restaurante> restaurantes) throws Exception {
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
+		try 
+		{
+			//////transaccion - ACID Example
+			this.conn = darConexion();
+			conn.setAutoCommit(false);
+			daoRestaurantes.setConn(conn);
+			Iterator<Restaurante> it = restaurantes.iterator();
+			while(it.hasNext())
+			{
+				daoRestaurantes.addRestaurante(it.next());
+			}
+			
+			conn.commit();
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} finally {
+			try {
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	/**
+	 * Metodo que modela la transaccion que actualiza el video que entra como parametro a la base de datos.
+	 * <b> post: </b> se ha actualizado el video que entra como parametro
+	 * @param video - Video a actualizar. video != null
+	 * @throws Exception - cualquier error que se genera actualizando los videos
+	 */
+	public void updateRestaurante(Restaurante restaurante) throws Exception {
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoRestaurantes.setConn(conn);
+			daoRestaurantes.updateRestaurante(restaurante);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoRestaurantes.cerrarRecursos();
 				if(this.conn!=null)
 					this.conn.close();
 			} catch (SQLException exception) {
@@ -354,14 +357,14 @@ public class RotondAndesTM {
 	 * @param video - Video a eliminar. video != null
 	 * @throws Exception - cualquier error que se genera actualizando los videos
 	 */
-	public void deleteVideo(Restaurante video) throws Exception {
-		DAOTablaRestaurante daoVideos = new DAOTablaRestaurante();
+	public void deleteRestaurante(Restaurante restaurante) throws Exception {
+		DAOTablaRestaurante daoRestaurantes = new DAOTablaRestaurante();
 		try 
 		{
 			//////transaccion
 			this.conn = darConexion();
-			daoVideos.setConn(conn);
-			daoVideos.deleteVideo(video);
+			daoRestaurantes.setConn(conn);
+			daoRestaurantes.deleteRestaurante(restaurante);
 
 		} catch (SQLException e) {
 			System.err.println("SQLException:" + e.getMessage());
@@ -373,7 +376,205 @@ public class RotondAndesTM {
 			throw e;
 		} finally {
 			try {
-				daoVideos.cerrarRecursos();
+				daoRestaurantes.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	
+	public List<Usuario> darUsuarios() throws Exception {
+		List<Usuario> usuarios;
+		DAOTablaUsuario daoUsuario = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuario.setConn(conn);
+			usuarios = daoUsuario.darUsuarios();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuario.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return usuarios;
+	}
+
+	
+	public List<Usuario> buscarUsuarioPorName(String name) throws Exception {
+		List<Usuario> usuarios;
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuarios.setConn(conn);
+			usuarios = daoUsuarios.buscarUsuarioPorName(name);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return usuarios;
+	}
+	
+	public Usuario buscarUsuarioPorId(Long id) throws Exception {
+		Usuario usuario;
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuarios.setConn(conn);
+			usuario = daoUsuarios.buscarUsuarioPorId(id);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return usuario;
+	}
+	
+	
+	public void addUsuario(Usuario usuario) throws Exception {
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuarios.setConn(conn);
+			daoUsuarios.addUsuario(usuario);
+			conn.commit();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void addUsuarios(List<Usuario> usuarios) throws Exception {
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion - ACID Example
+			this.conn = darConexion();
+			conn.setAutoCommit(false);
+			daoUsuarios.setConn(conn);
+			Iterator<Usuario> it = usuarios.iterator();
+			while(it.hasNext())
+			{
+				daoUsuarios.addUsuario(it.next());
+			}
+			
+			conn.commit();
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void updateUsuario(Usuario usuario) throws Exception {
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuarios.setConn(conn);
+			daoUsuarios.updateUsuario(usuario);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
 				if(this.conn!=null)
 					this.conn.close();
 			} catch (SQLException exception) {
@@ -384,4 +585,423 @@ public class RotondAndesTM {
 		}
 	}
 
+	public void deleteUsuario(Usuario usuario) throws Exception {
+		DAOTablaUsuario daoUsuarios = new DAOTablaUsuario();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoUsuarios.setConn(conn);
+			daoUsuarios.deleteUsuario(usuario);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoUsuarios.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public List<Zona> darZonas() throws Exception {
+		List<Zona> zonas;
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoZonas.setConn(conn);
+			zonas = daoZonas.darZonas();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return zonas;
+	}
+
+	
+	public Zona buscarZonaPorId(Long id) throws Exception {
+		Zona zona;
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoZonas.setConn(conn);
+			zona = daoZonas.buscarZonaPorId(id);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return zona;
+	}
+	
+	
+	public void addZona(Zona zona) throws Exception {
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoZonas.setConn(conn);
+			daoZonas.addZona(zona);
+			conn.commit();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void addZonas(List<Zona> zonas) throws Exception {
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion - ACID Example
+			this.conn = darConexion();
+			conn.setAutoCommit(false);
+			daoZonas.setConn(conn);
+			Iterator<Zona> it = zonas.iterator();
+			while(it.hasNext())
+			{
+				daoZonas.addZona(it.next());
+			}
+			
+			conn.commit();
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void updateZona(Zona zona) throws Exception {
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoZonas.setConn(conn);
+			daoZonas.updateZona(zona);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+
+	public void deleteZona(Zona zona) throws Exception {
+		DAOTablaZona daoZonas = new DAOTablaZona();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoZonas.setConn(conn);
+			daoZonas.deleteZona(zona);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoZonas.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public List<Menu> darMenus() throws Exception {
+		List<Menu> menus;
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoMenus.setConn(conn);
+			menus = daoMenus.darMenus();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return menus;
+	}
+
+	
+	public Menu buscarMenuPorId(Long id) throws Exception {
+		Menu menu = null;
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoMenus.setConn(conn);
+			menu = daoMenus.buscarMenuPorId(id);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+		return menu;
+	}
+	
+	
+	public void addMenu(Menu menu) throws Exception {
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoMenus.setConn(conn);
+			daoMenus.addMenu(menu);
+			conn.commit();
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void addMenus(List<Menu> menus) throws Exception {
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion - ACID Example
+			this.conn = darConexion();
+			conn.setAutoCommit(false);
+			daoMenus.setConn(conn);
+			Iterator<Menu> it = menus.iterator();
+			while(it.hasNext())
+			{
+				daoMenus.addMenu(it.next());
+			}
+			
+			conn.commit();
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			conn.rollback();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+	
+	public void updateMenu(Menu menu) throws Exception {
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoMenus.setConn(conn);
+			daoMenus.updateMenu(menu);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
+
+	public void deleteMenu(Menu menu) throws Exception {
+		DAOTablaMenu daoMenus = new DAOTablaMenu();
+		try 
+		{
+			//////transaccion
+			this.conn = darConexion();
+			daoMenus.setConn(conn);
+			daoMenus.deleteMenu(menu);
+
+		} catch (SQLException e) {
+			System.err.println("SQLException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} catch (Exception e) {
+			System.err.println("GeneralException:" + e.getMessage());
+			e.printStackTrace();
+			throw e;
+		} finally {
+			try {
+				daoMenus.cerrarRecursos();
+				if(this.conn!=null)
+					this.conn.close();
+			} catch (SQLException exception) {
+				System.err.println("SQLException closing resources:" + exception.getMessage());
+				exception.printStackTrace();
+				throw exception;
+			}
+		}
+	}
 }

@@ -74,7 +74,7 @@ public class DAOTablaRestaurante {
 	 * @throws SQLException - Cualquier error que la base de datos arroje.
 	 * @throws Exception - Cualquier error que no corresponda a la base de datos
 	 */
-	public ArrayList<Restaurante> darVideos() throws SQLException, Exception {
+	public ArrayList<Restaurante> darRestaurantes() throws SQLException, Exception {
 		ArrayList<Restaurante> restaurantes = new ArrayList<Restaurante>();
 
 		String sql = "SELECT * FROM RESTAURANTE";
@@ -182,7 +182,7 @@ public class DAOTablaRestaurante {
 	 * @throws SQLException - Cualquier error que la base de datos arroje. No pudo actualizar el video.
 	 * @throws Exception - Cualquier error que no corresponda a la base de datos
 	 */
-	public void updateVideo(Restaurante restaurante) throws SQLException, Exception {
+	public void updateRestaurante(Restaurante restaurante) throws SQLException, Exception {
 
 		String sql = "UPDATE RESTAURANTE SET ";
 		sql += "NOMBRE='" + restaurante.getNombre() + "',";
@@ -205,7 +205,7 @@ public class DAOTablaRestaurante {
 	 * @throws SQLException - Cualquier error que la base de datos arroje. No pudo actualizar el video.
 	 * @throws Exception - Cualquier error que no corresponda a la base de datos
 	 */
-	public void deleteVideo(Restaurante restaurante) throws SQLException, Exception {
+	public void deleteRestaurante(Restaurante restaurante) throws SQLException, Exception {
 
 		String sql = "DELETE FROM RESTAURANTE";
 		sql += " WHERE ID = " + restaurante.getId();
@@ -214,5 +214,4 @@ public class DAOTablaRestaurante {
 		recursos.add(prepStmt);
 		prepStmt.executeQuery();
 	}
-
 }

@@ -1,18 +1,31 @@
 package vos;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Menu {
 
+	@JsonProperty(value="id")
+	private Long id;
+	
+	@JsonProperty(value="productos")
 	private Producto[] productos;
 	
+	@JsonProperty(value="costo")
 	private double costo;
 	
-	private double precio;
-
-	public Menu(double costo, double precio) {
+	public Menu(@JsonProperty(value="id")Long id, @JsonProperty(value="productos")Producto[] productos, @JsonProperty(value="costo")double costo) {
 		super();
-		this.productos = new Producto[5];
+		this.id = id;
+		this.productos = productos;
 		this.costo = costo;
-		this.precio = precio;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Producto[] getProductos() {
@@ -29,13 +42,5 @@ public class Menu {
 
 	public void setCosto(double costo) {
 		this.costo = costo;
-	}
-
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
 	}
 }
